@@ -1,36 +1,25 @@
 const Path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
-const src = Path.resolve(__dirname, "./src");
-const dist = Path.resolve(__dirname, "./dist");
-
 const config = {
-    entry: Path.resolve(src, "index.js"),
+    entry: "./src/index.js",
     output: {
-        path: dist,
+        path: Path.resolve(__dirname, "dist"),
         filename: "bundle.js"
     },
     module: {
         rules: [
             { test: /\.(js|jsx)$/, use: "babel-loader", exclude: /node_modules/ },
-            { test: /\.css$/, use: ["style-loader", "css-loader"] },
-            { test: /\.(scss|sass)$/, use: ["style-loader", "css-loader", "sass-loader"] },
-            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, use: "url-loader?limit=10000&mimetype=application/font-woff" },
-            { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, use: "url-loader?limit=10000&mimetype=application/font-woff" },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: "url-loader?limit=10000&mimetype=application/octet-stream" },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: "file-loader" },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: "url-loader?limit=10000&mimetype=image/svg+xml" }
+            { test: /\.css$/, use: ["style-loader", "css-loader"] }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({ template: "index.html" }), new CopyWebpackPlugin({ patterns: [{ from: "images", to: "images" }] })],
+    plugins: [new HtmlWebpackPlugin({ template: "index.html" })],
     performance: {
         maxEntrypointSize: 2048000,
         maxAssetSize: 2048000
     },
     devServer: {
-        contentBase: dist,
         compress: true,
         port: 1112,
         proxy: {
@@ -44,11 +33,6 @@ const config = {
         minimize: true,
         minimizer: [
             new TerserPlugin({
-                terserOptions: {
-                    format: {
-                        comments: false
-                    }
-                },
                 extractComments: false
             })
         ]
