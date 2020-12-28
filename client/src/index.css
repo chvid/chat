@@ -1,0 +1,55 @@
+body {
+    font-family: Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #eee;
+}
+
+/* Main */
+
+.lines {
+    padding: 1em 1em 12em 1em;
+}
+
+.line {
+    background-color: #fff;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.signature {
+    text-align: right;
+    color: #888;
+    font-size: 12px;
+}
+
+/* Bottom */
+
+.bottom {
+    position: fixed;
+    bottom: 0px;
+    height: 12em;
+    width: 100%;
+    background-color: #ccc;
+}
+
+.controls {
+    padding: 1em;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    font-size: 16px;
+    height: 10em;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    padding: 0.5em 1em;
+    font-size: 16px;
+    margin: 0;
+}

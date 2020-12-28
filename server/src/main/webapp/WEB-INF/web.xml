@@ -1,0 +1,6 @@
+<web-app>
+    <context-param>
+        <param-name>packageToScan</param-name>
+        <param-value>dk.brightworks.chat</param-value>
+    </context-param>
+</web-app>

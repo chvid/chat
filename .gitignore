@@ -1,0 +1,12 @@
+.idea
+.DS_Store
+*.iml
+*.iws
+*.ipr
+target
+server/src/main/webapp/bundle.js
+server/src/main/webapp/index.html
+client/package-lock.json
+client/dist
+client/npm-debug.log
+client/node_modules
