@@ -9,7 +9,6 @@ export class Main extends React.Component {
         super();
         this.username = randomName();
         this.state = {
-            status: "not-connected",
             messages: []
         };
         this.wsServer = new WsServer();
@@ -30,7 +29,6 @@ export class Main extends React.Component {
     }
 
     componentDidMount() {
-        console.log("componentDidMount()");
         this.wsServer.init();
     }
 
