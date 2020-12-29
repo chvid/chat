@@ -4,11 +4,11 @@
     "description": "n/a",
     "private": true,
     "scripts": {
-        "build": "webpack --mode=production",
+        "build": "NODE_ENV=production webpack",
         "clean": "rimraf dist",
-        "start": "webpack --mode=development serve",
+        "start": "NODE_ENV=development webpack serve",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "copy-to-server": "webpack --mode=production && cpx \"dist/**/*\" \"../server/src/main/webapp\"",
+        "copy-to-server": "NODE_ENV=production webpack --mode=production && cpx \"dist/**/*\" \"../server/src/main/webapp\"",
         "prettier": "prettier --write index.html package.json webpack.config.js src"
     },
     "keywords": [],
